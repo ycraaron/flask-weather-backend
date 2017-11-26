@@ -28,11 +28,19 @@ def fetch_weather(pars={}):
     # if start is provided, end is not, find the weather info later than start time
     # if both are provided and start is earlier than end, find the weather info within the time range
     if start is not None:
-        start_time = datetime.datetime.strptime(start, date_format)
-        start_ts = datetime.datetime.timestamp(start_time)
+        try:
+            start_time = datetime.datetime.strptime(start, date_format)
+            start_ts = datetime.datetime.timestamp(start_time)
+        except Exception:
+            dic_fail['message'] = 'invalid start date'
+            return dic_fail
         if end is not None:
-            end_time = datetime.datetime.strptime(end, date_format)
-            end_ts = datetime.datetime.timestamp(end_time)
+            try:
+                end_time = datetime.datetime.strptime(end, date_format)
+                end_ts = datetime.datetime.timestamp(end_time)
+            except Exception:
+                dic_fail['message'] = 'invalid end date'
+                return dic_fail
             if start_ts > end_ts:
                 dic_fail['message'] = 'end date should not be earlier than start date'
                 return dic_fail
@@ -41,8 +49,12 @@ def fetch_weather(pars={}):
             result = collection.find({'timestamp': {"$gt": start_ts}}).sort('timestamp', pymongo.DESCENDING).limit(10)
     else:
         if end is not None:
-            end_time = datetime.datetime.strptime(end, date_format)
-            end_ts = datetime.datetime.timestamp(end_time)
+            try:
+                end_time = datetime.datetime.strptime(end, date_format)
+                end_ts = datetime.datetime.timestamp(end_time)
+            except Exception:
+                dic_fail['message'] = 'invalid end date'
+                return dic_fail
             result = collection.find({'timestamp': {"$lt": end_ts}}).sort('timestamp', pymongo.DESCENDING).limit(10)
         else:
             result = collection.find().sort('timestamp', pymongo.DESCENDING).limit(10)

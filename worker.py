@@ -27,7 +27,7 @@ class WeatherWorker(object):
         self.log.addHandler(self.file_handler)
 
     def update_all_city(self):
-        threading.Timer(30.0, self.get_all_weather).start()
+        threading.Timer(30.0, self.update_all_city).start()
         for key in self.dic_city:
             city_id = self.dic_city[key]
             observation = owm.weather_at_id(city_id)
@@ -51,7 +51,7 @@ class WeatherWorker(object):
                 self.log.error(key + ' fail to update at ' + time.strftime('%A, %d. %B %Y %I:%M%p'))
 
 worker = WeatherWorker()
-worker.get_all_weather()
+worker.update_all_city()
 # HK ID: 1819730
 # SG ID: 1880252
 
