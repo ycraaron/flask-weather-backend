@@ -36,3 +36,10 @@ The function returns a new list with `y` merged into `x`, collapsing any overlap
            else:
                merge(new_list_interval)
 ```
+
+#### Run the code:
+  Open terminal -> enter the folder
+  ```sh
+  $ python3 merge.py
+  ```
+  
