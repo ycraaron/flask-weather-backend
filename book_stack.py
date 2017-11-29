@@ -84,7 +84,7 @@ def build_all_stack_by_layer(ls_layer_edge_1, ls_layer_edge_2, dic_possible_laye
         return absolute_max_layer
     else:
         if len(ls_all_book_stacks) > 1:
-            print('multiple found', ls_all_book_stacks)
+            # print('multiple found', ls_all_book_stacks)
             random.shuffle(ls_all_book_stacks)
             return ls_all_book_stacks[0]
         else:
