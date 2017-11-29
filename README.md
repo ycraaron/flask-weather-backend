@@ -56,7 +56,8 @@ The basic idea is to:
   
 ### Run the code:
   Open terminal -> enter the folder
-  ...sh
+  ```sh
   $ python3 book_stack.py
+  ```
   
   
