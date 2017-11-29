@@ -38,9 +38,9 @@ def tallest_tower(book_dimension_list):
     elif len(stack1) == len(stack2):
         for i in range(len(stack2)):
             stack2[i][0], stack2[i][1] = stack2[i][1], stack2[i][0]
-        print('2 stacks found:')
-        print(stack1)
-        print(stack2)
+        # print('2 stacks found:')
+        # print(stack1)
+        # print(stack2)
         return stack1
     else:
         for i in range(len(stack2)):
@@ -146,18 +146,15 @@ if __name__ == '__main__':
 
     ls_book = [[14, 9], [11, 9], [11, 12], [3, 4], [15, 10]]
     stack = tallest_tower(ls_book)
-    print('************************************')
     print('result: {}'.format(stack))
     print('************************************')
 
     ls_book = [[14, 9], [11, 9], [11, 12], [3, 4], [15, 10], [17, 11]]
     stack = tallest_tower(ls_book)
-    print('************************************')
     print('result: {}'.format(stack))
     print('************************************')
 
     ls_book = [[14, 9], [11, 9], [11, 12], [3, 4], [15, 10], [17, 10], [1, 2], [15, 111], [1111, 2]]
     stack = tallest_tower(ls_book)
-    print('************************************')
     print('result: {}'.format(stack))
     print('************************************')
