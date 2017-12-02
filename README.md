@@ -1,3 +1,9 @@
+# 3 Branches
+ - This repo has 3 braches.
+ - master: weather API
+ - merge_interval: a tail recursion algorithm of merging a list of interval.
+ - stack_tower: algorithm for stacking a bunch of books in to a stable tower.
+
 
 ## Weather API
 1. A worker that fetches the current weather data for HK and SG every minute.
